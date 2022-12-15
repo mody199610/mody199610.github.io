@@ -2,15 +2,20 @@
 <html>
   <body>
   <head>
-    <script>
-    fetch('https://s.reddit.com/api/v1/sendbird/me')
-    .then(function(response) {
-    return response.json();
-    })
-    .then(function(myJson) {
-    console.log(JSON.stringify(myJson));
-    });
-    </script>
+    <center><h2 id="response"></h2></center>
+<script>
+      let response = fetch(
+        "https://linktr.ee/api/token"
+      )
+        .then((response) => response.json())
+        .then((response) => {
+          console.log(response.events[0].title);
+          return response;
+        })
+        .then((response) => {
+          document.getElementById("response").innerHTML = response.events[0].title;
+        });
+</script>
   </head>
   </body>
 </html>
